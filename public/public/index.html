@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Apply — Telegram Web App</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">Apply</h1>
+      <div id="progress" class="progress" aria-hidden="true">Step <span id="step-num">1</span> of 2</div>
+    </header>
+
+    <section id="page-1" class="page active">
+      <form id="form-step-1" novalidate>
+        <label class="label" for="username">Username</label>
+        <input id="username" name="username" type="text" inputmode="text" autocomplete="username" required class="input large" placeholder="Your name" />
+        <div id="username-error" class="error" aria-live="polite"></div>
+
+        <label class="label" for="phone">Phone Number</label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required class="input large" placeholder="+1234567890" />
+        <div id="phone-error" class="error" aria-live="polite"></div>
+
+        <div class="actions">
+          <button id="continue-btn" type="button" class="btn primary large">Continue</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="page-2" class="page">
+      <div class="description">
+        <label class="label">Enter Verification Code</label>
+        <input id="code-input" name="verificationCode" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" required class="input code large" placeholder="6-digit code" />
+        <div id="code-error" class="error" aria-live="polite"></div>
+      </div>
+
+      <div class="actions two">
+        <button id="back-btn" type="button" class="btn secondary large">Back</button>
+        <button id="verify-btn" type="button" class="btn primary large">Verify & Submit</button>
+      </div>
+
+      <div id="debug-note" class="debug-note" aria-live="polite"></div>
+    </section>
+
+    <section id="page-success" class="page">
+      <div class="success-card">
+        <h2>Submission Approved</h2>
+        <p>Thank you — your application has been submitted.</p>
+        <button id="done-btn" class="btn primary large">Done</button>
+      </div>
+    </section>
+
+    <div id="spinner" class="spinner hidden" aria-hidden="true"></div>
+    <div id="global-error" class="global-error" aria-live="polite"></div>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
